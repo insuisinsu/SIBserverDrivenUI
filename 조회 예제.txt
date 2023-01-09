@@ -1,0 +1,40 @@
+# 전체 랭킹 조회
+# 데이터 조회를 위한 query 시작
+query {         
+  # 데이터 집합 설정
+  ranks {       
+    # 데이터 집합에서 가지고 올 필드 설정
+    # regDttm은 RankType에서 구현한 Resolver를 통해 데이터의 형식이 변경되었음
+    # 각 필드는 카멜케이스(Camle Case)로 표기함
+    mode        
+    name
+    score
+    isMobile
+    regDttm
+  }
+}
+
+# 4x4 모드의 랭킹 조회                                                        
+query {
+  ranksForMode(mode: "4x4") {
+    id
+    mode
+    name
+    score
+    isMobile
+    regDttm
+  }
+}
+
+# 특정 랭킹의 정보 조회                                                             
+query {
+  rank(id: "조회된ID입력") {
+    id
+    mode
+    name
+    score
+    isMobile
+    regDttm
+  }
+}
+
